@@ -1,6 +1,6 @@
-import Inicio from "../pages/InicioPage/InicioPage";
-import Error from "../pages/ErrorPage/ErrorPage";
-import Cadastro from "../pages/CadastroPage/CadastroPage";
-import Receitas from "../pages/ReceitasPage/ReceitasPage";
+import Inicio from "./InicioPage/InicioPage";
+import Error from "./ErrorPage/ErrorPage";
+import Cadastro from "./CadastroPage/CadastroPage";
+import Receitas from "./ReceitasPage/ReceitasPage";
 
 export { Inicio, Error, Cadastro, Receitas };

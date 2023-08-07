@@ -5,7 +5,7 @@ const InicioPage = () => {
 
     return (
       <div>
-          <h1>Salve Receitas</h1>
+          <h1 >Salve Receitas</h1>
           <button onClick={() => {return navigate("/lista-de-receitas")}}>Lista de Receitas</button>
           <button onClick={() => {return navigate("/cadastrar-receita")}}>Cadastrar Receitas</button>
       </div>
