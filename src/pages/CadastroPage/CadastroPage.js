@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function CadastroPage({ setReceitas }) {
+function CadastroPage({ adicionarReceita }) {
     const [title, setTitle] = useState('')
     const [ingredientes, setIngredientes] = useState('')
     const [preparo, setPreparo] = useState('')
@@ -15,33 +15,20 @@ function CadastroPage({ setReceitas }) {
         setPreparo(event.target.value)
     }
 
-    const adicionarReceita = (evento) => {
-        evento.preventDefault();
-
+    const handleSalvar = () => {
         const novaReceita = {
             title,
             ingredientes,
             preparo,
         };
 
-        // Receitas antigas do localStorage ou inicializar um array vazio caso não haja nada
-        const receitasAntigas = JSON.parse(localStorage.getItem('receitas') || '[]');
-
-        // Adicionar a nova receita às receitas antigas
-        const receitasAtualizadas = [...receitasAntigas, novaReceita];
-
-        // Salvar a lista de receitas atualizada no localStorage
-        localStorage.setItem('receitas', JSON.stringify(receitasAtualizadas));
-
-        // Atualizar o estado do componente para refletir as receitas
-        setReceitas(receitasAtualizadas);
+        adicionarReceita(novaReceita);
 
         // Limpar o formulário após salvar a receita
         setTitle('');
         setIngredientes('');
         setPreparo('');
     };
-
 
     return (
         <div>
@@ -64,7 +51,7 @@ function CadastroPage({ setReceitas }) {
                     </div>
 
                     <div className='card-footer'>
-                        <button type='submit'>Salvar receita</button>
+                        <button onClick={handleSalvar}>Salvar receita</button>
                     </div>
                 </form>
             </div>

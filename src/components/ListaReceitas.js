@@ -10,6 +10,12 @@ function ListaReceitas() {
     setReceitas(receitasSalvas);
   }, []);
 
+  const adicionarReceita = (novaReceita) => {
+    const receitasAtualizadas = [...receitas, novaReceita];
+    localStorage.setItem('receitas', JSON.stringify(receitasAtualizadas));
+    setReceitas(receitasAtualizadas);
+  };
+
   return (
     <div>
       {/* Renderizar as receitas */}
@@ -21,8 +27,8 @@ function ListaReceitas() {
         </div>
       ))}
 
-      {/* Renderizar o componente CadastroPage passando a função setReceitas */}
-      <CadastroPage setReceitas={setReceitas} />
+      {/* Renderizar o componente CadastroPage passando a função adicionarReceita */}
+      <CadastroPage adicionarReceita={adicionarReceita} />
     </div>
   );
 }
